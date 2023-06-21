@@ -1,0 +1,193 @@
+$bg-color: rgba(#1e1e2e, 0.7);
+$fg-color: rgba(#7db37f, 0.9);
+$hover-fg: rgba(#a6e3a1, 0.3);
+$shadow-color: rgba(black, 0.8);
+$border-radius: 20px; // 20 if round, 0 if square (20 is overkill but idc lol)
+$border-size: 3px;
+
+* {
+    all: unset;
+    transition: all 0.333333333333333333s;
+    font-family: 'Ubuntu Mono', 'Font Awesome 6 Free';
+    color: #cccccc;
+    font-size: 16px;
+}
+
+// ---=============--- Generic stuff ---=============---
+.icon-label {
+    font-family: 'Font Awesome 6 Free';
+}
+.generic {
+    // background-size: 20px;
+    background-color: $bg-color;
+    font-family: 'Ubuntu Mono';
+    border: $border-size solid $fg-color;
+    border-radius: $border-radius;
+    margin: 5px 10px 5px 10px;
+    box-shadow: 3px 3px $shadow-color;
+}
+.generic-clickable {
+    border-radius: $border-radius;
+    // margin: 3px 3px 3px 3px;
+    transition: background-color 0.25s;
+}
+.generic-clickable:hover { // change mouse to click and animate
+    background-color: $hover-fg;
+    border-radius: $border-radius;
+    font-family: 'Ubuntu Mono';
+}
+
+
+// ---=============--- Workspace stuff ---=============---
+.workspace-active, .workspace-inactive, .workspace-occupied, .workspace-empty {
+    font-family: "Iosevka";
+}
+
+.workspace-active {
+    background-color: rgba(white,0.1);
+}
+
+.workspace-inactive {
+    background-color: transparent;
+    transition: background-color 0.333333333333333333s;
+}
+.workspace-inactive:hover {
+    background-color: $hover-fg;
+}
+
+.workspace-occupied {
+    color: #cccccc;
+}
+.workspace-empty {
+    color: #aaaaaa;
+}
+
+
+
+// ---=============--- Music stuff ---=============---
+
+.music-button {
+    border-radius: $border-radius;
+    transition: background-color 0.25s;
+}
+.music-button:hover { // change mouse to click and animate
+    background-color: $hover-fg;
+    font-family: 'Ubuntu Mono';
+    border-radius: $border-radius;
+}
+
+.music-icon {
+    background-size: 26px;
+    background-repeat: no-repeat;
+    border-radius: $border-radius;
+}
+
+// Music volume slider
+.volume-slider scale trough {
+    all: unset;
+    background-color: #46465c;
+    border-radius: 50px;
+    min-height: 26px;
+    min-width: 4px;
+}
+.volume-slider scale trough highlight {
+    all: unset;
+    background-color: #4882fe;
+    color: #000000;
+    border-radius: 10px;
+}
+.volume-slider slider {
+    all: unset;
+    color: #4882fe;
+    border-radius: 10px;
+}
+
+// Music progress bar
+.progress trough {
+    background-color: red;
+    border-radius: 0px;
+    min-height: 2px;
+    min-width: 4px;
+}
+
+.progress trough {
+    background-color: $bg-color;
+    border-radius: 0px;
+    min-height: 2px;
+    min-width: 4px;
+}
+.progress trough highlight {
+    background-color: #a5bad0;
+    // background-color: #4882fe;
+    // background-color: #fe4b48;
+    border-radius: 0px;
+}
+
+.progress slider {
+    all: unset;
+    border-radius: 0px;
+}
+
+
+
+// ---=============--- Apps ---=============---
+
+.kitty-launcher, .vivaldi-launcher, .steam-launcher, .spotify-launcher, .files-launcher, .launcher {
+    background-size: 26px;
+    background-position: 2px 2px;
+    background-repeat: no-repeat;
+    // border-radius: $border-radius;
+}
+
+.kitty-launcher:hover, .vivaldi-launcher:hover, .steam-launcher:hover, .spotify-launcher:hover, .files-launcher:hover, .launcher:hover {
+    background-color: $hover-fg;
+    // border-radius: $border-radius;
+}
+
+.kitty-launcher {
+    background-image: url("/home/ramos/.config/eww/icons/kitty.svg");
+}
+
+.vivaldi-launcher {
+    background-image: url("/home/ramos/.config/eww/icons/vivaldi.svg");
+}
+
+.steam-launcher {
+    background-image: url("/home/ramos/.config/eww/icons/steam.svg");
+}
+
+.spotify-launcher {
+    background-image: url("/home/ramos/.config/eww/icons/spotify.svg");
+}
+
+.files-launcher {
+    background-image: url("/home/ramos/.config/eww/icons/files.svg");
+}
+
+.launcher {
+    background-image: url("/home/ramos/.config/eww/icons/edit-find.svg");
+}
+
+// ---=============--- Other ---=============---
+.icon-sysmon {
+    font-family: 'Font Awesome 6 Free';
+    font-size: 11;
+}
+
+.progress-memory {
+    color: #4882fe;
+    background-color: #46465c;
+}
+.progress-cpu {
+    color: #fe4b48;
+    background-color: #46465c;
+}
+.progress-drive {
+    color: #63b45f;
+    background-color: #46465c;
+}
+
+.power-label {
+    font-family: 'Font Awesome 6 Free';
+    color: #c73544;
+}

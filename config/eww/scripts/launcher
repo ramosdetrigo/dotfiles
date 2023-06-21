@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 == "-vi" ]]; then
+    vivaldi-stable &
+elif [[ $1 == "-ki" ]]; then
+    kitty --detach ~ &
+elif [[ $1 == "-st" ]]; then
+    steam &
+elif [[ $1 == "-sp" ]]; then
+    spotify &
+elif [[ $1 == "-fi" ]]; then
+    nemo ~ &
+fi
