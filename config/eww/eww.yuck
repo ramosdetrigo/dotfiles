@@ -286,7 +286,7 @@
     :focusable false
     :wm-ignore false
     :geometry (geometry :y "10px"
-                        :width "1920px"
+                        :width "100%"
                         :height "30px"
                         :anchor "top center")
     (top_bar_widget))
