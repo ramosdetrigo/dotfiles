@@ -26,7 +26,7 @@ Fonts:
 
 Color scheme:
  - [Kanawaga](https://github.com/rebelot/kanagawa.nvim/tree/master) for neovim (I use the palette for the rest of the system too!)
- - [Catppuccin](https://github.com/catppuccin/catppuccin) for terminal [(themes for vivaldi here)](https://github.com/catppuccin/vivaldi/releases/tag/1.0.0-ctpv2)
+ - [Catppuccin](https://github.com/catppuccin/catppuccin) for terminal, vivaldi and cava [(themes for vivaldi here)](https://github.com/catppuccin/vivaldi/releases/tag/1.0.0-ctpv2)
 
 
 Icons:
