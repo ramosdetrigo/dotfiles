@@ -5,10 +5,12 @@ set -g fish_color_quote yellow
 set -g fish_color_param white
 set -g fish_pager_color_selected_completion blue
 
+source ~/.config/fish/conf.d/hydro.fish
+
 # Some config
-set -g fish_greeting (set_color red)'
-     H'(set_color yellow)'e'(set_color green)'l'(set_color blue)'l'(set_color magenta)'o 🙂
-'(set_color normal)
+set -g fish_greeting (set_color brblue --bold --italic)'
+  H'(set_color brmagenta --bold --italic)'e'(set_color normal)(set_color --bold --italic)'l'(set_color brmagenta --bold --italic)'l'(set_color brblue --bold --italic)'o'(set_color normal)(set_color --bold --italic)'!'(set_color cyan)' :)
+'
 
 # Git config
 set -g __fish_git_prompt_show_informative_status 1
@@ -28,18 +30,26 @@ set -g __fish_git_prompt_char_upstream_equal ''
 set -g __fish_git_prompt_char_upstream_prefix ''''
 
 # User abbreviations
-abbr -a -g h 'history'																								# Show history
+# abbr -a -g h 'history'																								# Show history
 # abbr -a -g please 'sudo'																						# Polite way to sudo
 # abbr -a -g fucking 'sudo'																						# Rude way to sudo
 # abbr -a -g fish_priv 'fish --private'																				# Fish incognito mode
 abbr -a -g untar 'tar -zxvf'																					# Untar
 # abbr -a -g edit 'micro'
 abbr -a -g ls 'ls -A'
+abbr -a -g exa 'exa --icons -TlL1'
+abbr -a -g garu 'paru'
+# abbr -a -g wine-ge ~/.scripts/utils/lutris-ge/bin/wine
+abbr -a -g py python
 
-fish_add_path /home/ramos/.spicetify
-fish_add_path /home/ramos/.cargo/bin
+fish_add_path $HOME/.spicetify/
+fish_add_path $HOME/.cargo/bin/
+fish_add_path $HOME/.local/bin/
+fish_add_path /opt/android-sdk/build-tools/33.0.0/
+set --export ANDROID_HOME /opt/android-sdk/
 
 #if status is-interactive
-#  cd /home/ramos/
 #end
 
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $HOME/.ghcup/bin $PATH # ghcup-env

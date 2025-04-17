@@ -1,2 +1,0 @@
-#!/bin/bash
-playerctl -p spotify position "$(echo $1 $2 | awk '{print $1/100 * $2}')"

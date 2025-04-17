@@ -1,23 +1,38 @@
-# _Green 🍃_
-My dotfiles
+# Dotfiles 👀
+My dotfiles! So peeping...
+![full1](previews/full1.png)
+![Editor](previews/editor.png)
+![full2](previews/full2.png)
+*more previews below!!!*
+
+### *Featuring...*
+ - [Arch linux](https://wiki.archlinux.org/title/Arch_Linux) as OS btw
+ - [Lemurs](https://github.com/coastalwhite/lemurs) as lockscreen (not shown)
+ - [i3](https://github.com/i3/i3) as window manager!
+ - [Polybar](https://github.com/polybar/polybar/) as... bar. yeah.
+ - [Fish](https://fishshell.com) as shell ;D
+ - [Wezterm](https://wezterm.org) as terminal cuz kitty has a fake scrollbar (???????)
+ - [Neovim](https://neovim.io) as editor but VSCodium is pretty nice too ig
+ - [Vivaldi](https://vivaldi.com/) as browser
+ - [Flameshot](https://flameshot.org) as screenshot tool
+ - [Spicetify](https://spicetify.app) as the thing that makes spotify pretty
+ - [Cava](https://github.com/karlstav/cava) as the music visualizer thingy yay
+ - also [LiteXL](https://github.com/lite-xl/lite-xl) as a fast text editor for general purposes (not shown) but I'm trying to switch to nvim
+ - srsly why does kitty have a fake scrollbar? you can't scroll it what even
 
 Fonts:
  - [VictorMono](https://rubjo.github.io/victor-mono/) for terminal & text editor
- - Ubuntu Mono for pretty much everything else
+ - Plain ol' monospace for polybar
 
-Theme:
-  - [Catppuccin Mocha Green Dark](https://github.com/catppuccin/catppuccin)
+Color scheme:
+ - [Kanawaga](https://github.com/rebelot/kanagawa.nvim/tree/master) for neovim (I use the palette for the rest of the system too!)
+ - [Catppuccin](https://github.com/catppuccin/catppuccin) for terminal [(themes for vivaldi here)](https://github.com/catppuccin/vivaldi/releases/tag/1.0.0-ctpv2)
+
 
 Icons:
-  - [Rowaita Mint Green Dark](https://github.com/4e6anenk0/Rowaita-icon-theme)
+ - [Colloid Orange Dracula](https://github.com/vinceliuice/Colloid-icon-theme) (icons)
+ - [Bibata Modern Classic](https://www.gnome-look.org/p/1914825) (cursor)
 
-Cursor:
-  - [WinSur Dark Cursors](https://github.com/yeyushengfan258/WinSur-dark-cursors)
-
-Previews:
-![Round corners](preview.png)
-![Square corners](preview2.png)
-
-For square//round corners change border-radius in eww.scss and rounding in hyprland.conf to 0.
-
-_(some stuff might be kinda rough around the edges or incomplete)_
+# A few other pretty images!! (more previews.)
+![full3](previews/full3.png)
+![browser](previews/browser.png)

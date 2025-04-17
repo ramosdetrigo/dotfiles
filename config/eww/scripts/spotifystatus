@@ -1,9 +1,0 @@
-#!/bin/sh
-POSITION=$(playerctl -sp spotify position | sed 's/..\{6\}$//')
-DURATION=$(playerctl -sp spotify metadata mpris:length | sed 's/.\{6\}$//')
-
-if [[ $POSITION ]]; then
-    echo "{\"position\": \"$POSITION\", \"duration\": \"$DURATION\"}"
-else
-    echo "{\"position\": \"0\", \"duration\": \"1\"}"
-fi
