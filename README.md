@@ -6,7 +6,7 @@ My dotfiles! So peeping...
 *more previews below!!!*
 
 ### *Featuring...*
- - [Arch linux](https://wiki.archlinux.org/title/Arch_Linux) as OS btw
+ - [Arch Linux](https://wiki.archlinux.org/title/Arch_Linux) as OS btw
  - [Lemurs](https://github.com/coastalwhite/lemurs) as lockscreen (not shown)
  - [i3](https://github.com/i3/i3) as window manager!
  - [Polybar](https://github.com/polybar/polybar/) as... bar. yeah.
