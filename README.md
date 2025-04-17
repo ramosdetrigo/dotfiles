@@ -17,7 +17,7 @@ My dotfiles! So peeping...
  - [Flameshot](https://flameshot.org) as screenshot tool
  - [Spicetify](https://spicetify.app) as the thing that makes spotify pretty
  - [Cava](https://github.com/karlstav/cava) as the music visualizer thingy yay
- - also [LiteXL](https://github.com/lite-xl/lite-xl) as a fast text editor for general purposes (not shown) but I'm trying to switch to nvim
+ - also [Lite XL](https://github.com/lite-xl/lite-xl) as a fast text editor for general purposes (not shown) but I'm trying to switch to nvim
  - srsly why does kitty have a fake scrollbar? you can't scroll it what even
 
 Fonts:
