@@ -21,7 +21,7 @@ My dotfiles! So peeping...
  - srsly why does kitty have a fake scrollbar? you can't scroll it what even
 
 Fonts:
- - [VictorMono](https://rubjo.github.io/victor-mono/) for terminal & text editor
+ - [Victor Mono](https://rubjo.github.io/victor-mono/) for terminal & text editor
  - Plain ol' monospace for polybar
 
 Color scheme:
