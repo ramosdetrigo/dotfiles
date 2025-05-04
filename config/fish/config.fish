@@ -37,7 +37,7 @@ set -g __fish_git_prompt_char_upstream_prefix ''''
 abbr -a -g untar 'tar -zxvf'																					# Untar
 # abbr -a -g edit 'micro'
 abbr -a -g ls 'ls -A'
-abbr -a -g exa 'exa --icons -TlL1'
+abbr -a -g exa 'exa --git -la'
 abbr -a -g garu 'paru'
 # abbr -a -g wine-ge ~/.scripts/utils/lutris-ge/bin/wine
 abbr -a -g py python

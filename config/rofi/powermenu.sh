@@ -68,7 +68,8 @@ run_cmd() {
 		elif [[ $1 == '--suspend' ]]; then
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			i3-msg exit
+            hyprctl dispatch exit
+			# i3-msg exit
 		fi
 	else
 		exit 0
