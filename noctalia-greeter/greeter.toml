@@ -1,0 +1,24 @@
+# noctalia-greeter greeter.toml
+# [session] default/last, [user] default, [appearance] scheme/password_style/hide_logo
+# [output] name/layout/scale/width/height/transforms, [idle] timeout, [cursor] theme/size/path
+# [keyboard] layout/variant/options/numlock
+# [auth] allow_empty_password (bool, default false; enables fingerprint/smartcard PAM auth)
+
+[appearance]
+hide_logo = true
+password_style = "random"
+scheme = "Synced"
+
+[auth]
+allow_empty_password = false
+
+[keyboard]
+numlock = true
+
+[output]
+layout = "DP-1:0,0; HDMI-A-1:1440,-900"
+transforms = "DP-1:normal; HDMI-A-1:90"
+
+[session]
+default = "Niri"
+last = "Niri"

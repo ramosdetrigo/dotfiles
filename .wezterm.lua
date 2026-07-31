@@ -1,0 +1,1 @@
+/home/julia/.wezterm.lua

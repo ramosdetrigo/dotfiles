@@ -1,0 +1,9 @@
+.local/state/noctalia/clipboard/
+.local/state/noctalia/notification_history_assets/
+.local/state/noctalia/plugin-cache/
+.local/state/noctalia/plugins/data/
+.local/state/noctalia/notification_history.json
+.local/state/noctalia/recently_used.json
+.local/state/noctalia/usage_counts.json
+.local/state/noctalia/screen_time.json
+
