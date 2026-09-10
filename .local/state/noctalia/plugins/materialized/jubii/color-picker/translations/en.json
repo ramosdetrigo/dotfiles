@@ -1,0 +1,16 @@
+{
+    "settings.notify.label": "Notify",
+    "settings.notify.description": "Send notifications.",
+    "settings.color_format.label": "Color format.",
+    "settings.color_format.description": "Color format for hyprpicker output.",
+    "settings.output_format.label": "Output format.",
+    "settings.output_format.description": "The formatting of the output.",
+    "settings.hex.name": "HEX",
+    "settings.rgb.name": "RGB",
+    "settings.hsl.name": "HSL",
+    "settings.hsv.name": "HSV",
+    "settings.cmyk.name": "CMYK",
+    "settings.css.name": "CSS",
+    "settings.raw.name": "Raw",
+    "settings.normal.name": "Raw normalized"
+}

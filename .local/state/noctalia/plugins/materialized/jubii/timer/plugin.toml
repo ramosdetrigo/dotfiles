@@ -1,0 +1,54 @@
+# Reference [[desktop_widget]] plugin: a countdown timer built from the
+# declarative ui.* vocabulary (desktopWidget.render). Demonstrates the full
+# desktop-widget pipeline: manifest -> appears in the desktop-widget editor ->
+# declarative control tree -> button callbacks -> second ticks -> settings.
+
+id = "jubii/timer"
+name = "Timer"
+version = "1.0.1"
+min_noctalia = "5.0.0"
+author = "jubii"
+dependencies = ["paplay"]
+license = "MIT"
+tags = ["timer", "desktop", "productivity"]
+icon = "clock"
+description = "A timer + stopwatch desktop widget with start/pause, reset, and timer adjustment buttons."
+plugin_api = 3
+
+[[desktop_widget]]
+id = "timer"
+entry = "timer.luau"
+
+  [[desktop_widget.setting]]
+  key = "default_duration"
+  type = "int"
+  label_key = "settings.default_duration.label"
+  description_key = "settings.default_duration.description"
+  default = 300 # 5 min
+  min = 1
+  max = 7200 # 2 hours
+
+  [[desktop_widget.setting]]
+  key = "color"
+  type = "color"
+  label_key = "settings.color.label"
+  description_key = "settings.color.description"
+  default = "primary"
+
+  [[desktop_widget.setting]]
+  key = "show_progress"
+  type = "bool"
+  label_key = "settings.show_progress.label"
+  default = true
+
+  [[desktop_widget.setting]]
+  key = "notify"
+  type = "bool"
+  label_key = "settings.notify.label"
+  default = true
+
+  [[desktop_widget.setting]]
+  key = "play_sound"
+  type = "bool"
+  label_key = "settings.play_sound.label"
+  default = true

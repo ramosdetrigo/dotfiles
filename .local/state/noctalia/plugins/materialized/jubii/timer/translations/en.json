@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "default_duration": {
+      "label": "Default duration (seconds)",
+      "description": "Default countdown length in seconds."
+    },
+    "color": {
+      "label": "Color",
+      "description": "Accent color for the time and progress bar."
+    },
+    "show_progress": {
+      "label": "Show progress bar"
+    },
+    "notify": {
+      "label": "Send notification"
+    },
+    "play_sound": {
+      "label": "Play a notification sound"
+    }
+  }
+}

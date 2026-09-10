@@ -1,0 +1,3 @@
+binds {
+    Super+Return hotkey-overlay-title="Open a Terminal" { spawn "wezterm"; }
+}

@@ -1,0 +1,1233 @@
+clear
+ls
+z
+ls --help
+ls | where { x | x == "tmp" }
+ls | where { | x | x == "tmp" }
+ls | where  | x | x == "tmp"
+ls | where { | x | $x == "tmp" }
+ls
+ls | where { | x | $x == "tmp/" }
+ls | where { | x | $x.name == "tmp" }
+ls | get modified
+ls | where { | x | $x.modified < 2 }
+cargo --help
+ls --help
+ls
+paru
+exit
+cargo --help
+z
+exit
+cd Desktop/Godot/silly/boxy/
+open project.config.json
+open project.godot
+let project_config = open project.config.json; $project_config | update name (open project.godot | from ini | get application?.'config/name'? | default $project_config.name) | update version (open project.godot | from ini | get application?.'config/version'? | default $project_config.version) | save -f project.config.json
+plugin list
+plugin add nu_plugin_formats
+plugin list
+plugin use formats
+plugin list
+let project_config = open project.config.json; $project_config | update name (open project.godot | from ini | get application?.'config/name'? | default $project_config.name) | update version (open project.godot | from ini | get application?.'config/version'? | default $project_config.version) | save -f project.config.json
+let project_config = open project.config.json; $project_config | update name (open project.godot | from ini | get application?.'config/name'? | default $project_config.name) | update version (open project.godot | from ini | get application?.'config/version'? | default $project_config.version)
+open project.godot | from ini
+(open project.godot | from ini).input
+(open project.godot | from toml).input
+open -r project.godot | str replace -mar '.*config/name="(?<name>.*)".*config/version="(?<version>.*)".*' '$name,$version'
+open -r project.godot | str replace -mar '(?s).*config/name="(?<name>.*)".*config/version="(?<version>.*)".*' '$name,$version'
+open -r project.godot | lines | where $it =~ "name="
+open -r project.godot | lines | where $it =~ "config/name=" | str replace -r 'config/name="(?<name>.*)"' '$name'
+open -r project.godot | lines | where $it =~ "config/nam=" | str replace -r 'config/name="(?<name>.*)"' '$name'
+let project_config = open project.config.json<\n>          $project_config<\n>          | update name (open -r project.godot | lines | where $it =~ "config/name=" | str replace -r 'config/name="(?<name>.*)"' '$name' | get 0? default $project_config.name)<\n>          | update version (open -r project.godot | lines | where $it =~ "config/version=" | str replace -r 'config/version="(?<version>.*)"' '$version' | get 0? default $project_config.version)<\n>          | save -f project.config.json
+let project_config = open project.config.json;$project_config<\n>          | update name (open -r project.godot | lines | where $it =~ "config/name=" | str replace -r 'config/name="(?<name>.*)"' '$name' | get 0? default $project_config.name)<\n>          | update version (open -r project.godot | lines | where $it =~ "config/version=" | str replace -r 'config/version="(?<version>.*)"' '$version' | get 0? default $project_config.version)<\n>          | save -f project.config.json
+let project_config = open project.config.json;$project_config | update name (open -r project.godot | lines | where $it =~ "config/name=" | str replace -r 'config/name="(?<name>.*)"' '$name' | get 0? | default $project_config.name) | update version (open -r project.godot | lines | where $it =~ "config/version=" | str replace -r 'config/version="(?<version>.*)"' '$version' | get 0? | default $project_config.version)<\n>          | save -f project.config.json
+config nu
+exit
+cd tmp
+ls -a
+ls -al
+e
+exit
+help ansi
+reload
+exit
+relaod
+clear
+c
+relaod
+c
+help ansi
+c
+explore settings
+explore config 
+c
+zoxide --help
+z 
+exit
+c
+zoxide init nushell
+cl
+c
+zoxide init nushell | save ~/.config/nushell/zoxide-init-nu.nu
+c
+z boxy
+zoxide import z 
+zoxide import zsh-z 
+zoxide import z.lua 
+c
+z ~
+exit
+c
+z Desktop/Godot/silly/boxy/
+z
+z y/r
+z boxy
+z
+nu-complete-zoxide-path 
+nu-complete-zoxide-path "z boxy"
+c
+relaod
+c
+z Desktop/Godot/silly/boxy
+z
+z boxy
+z
+zoxide import z 
+zoxide import --merge z 
+cp data ~/.z
+cat ~/.z
+c
+zoxide import --merge z 
+z tmp
+c
+z
+c
+exit
+nvim ~/.config/starship.toml
+starship init nu | save ~/.config/nushell/starship-init-nu.nu
+c
+z box
+clear
+c
+clear
+./..
+./boxy
+c
+explore config
+reload]
+c
+explore config
+c
+sudo pacman -Syu
+askldkjkasdj
+]
+clear
+$"(ansi cyan)a"
+$"(ansi cyan)a (ansi bold_green)b"
+$"(ansi cyan)a (ansi green_bold)b"
+c
+sadas dasdw
+c
+$env.config.color_config.*
+$env.config.color_config
+c 
+e
+c
+fastfetch
+c
+]
+c
+ajdaskdjhasjkd has
+clear
+aksdjkasd
+exit
+kjaskdjkasjdkasjdkasjdka
+z
+exit
+asjdkjaskdjaskjd klk lkl lll
+c
+clear
+c
+clear
+c
+clear
+c
+clear
+c
+clear
+c
+exit
+cd tmp
+luajit thing.lua
+$env.CMD_DURATION_MS
+$env.CMD_DURATION_MS | into datetime 
+$env.CMD_DURATION_MS | into datetime help
+$env.CMD_DURATION_MS | into datetime --help
+$env.CMD_DURATION_MS | into duration
+$env.CMD_DURATION_MS | into duration --unit ms
+$env.CMD_DURATION_MS | into duration --unit sec
+$env.CMD_DURATION_MS | into duration --unit ms
+$env.CMD_DURATION_MS | into duration --help
+$env.CMD_DURATION_MS | into duration
+$env.CMD_DURATION_MS | into duration --unit ms
+$env.CMD_DURATION_MS | into duration --unit ms | format duration
+$env.CMD_DURATION_MS | into duration --unit ms | format duration --help
+$env.CMD_DURATION_MS | into duration --unit ms | format duration ms
+$env.CMD_DURATION_MS | into duration --unit ms | format duration sec
+$env.CMD_DURATION_MS | into duration --unit ms | format duration ms
+$env.CMD_DURATION_MS / 1000
+($env.CMD_DURATION_MS) / 1000
+($env.CMD_DURATION_MS | into int) / 1000
+$"(($env.CMD_DURATION_MS | into int) / 1000)s"
+luajit ./thing.lua && $"(($env.CMD_DURATION_MS | into int) / 1000)s"
+luajit ./thing.lua and $"(($env.CMD_DURATION_MS | into int) / 1000)s"
+luajit ./thing.lua and echo $"(($env.CMD_DURATION_MS | into int) / 1000)s"
+luajit ./thing.lua; echo $"(($env.CMD_DURATION_MS | into int) / 1000)s"
+c
+luajit ./thing.lua
+clear
+z box
+clear
+ls
+nvim project.godot
+git status
+c
+clear
+git status
+git restore project.godot
+nvim project.godot
+git add .
+git commit -m "a<\n>"
+clear
+c
+ls
+touch cu
+rm cu
+clear
+touch cu
+rm cu
+c
+explore config
+clear
+c
+clear
+explore config
+sudo pacman -Syyu
+fastfetch
+chsh --help
+chsh -s nu
+chsh -s /bin/nu
+exit
+fastfetch
+clear
+c
+ls
+clear
+c
+clear
+c
+clear
+relaod
+c]
+c
+z tmp
+luajit ./thing.lua
+z box
+c
+grre
+greeter
+c
+git commit drop
+git commit --help
+git reset --head
+git reset --hard
+clear
+git reset --hard HEAD~1
+clear
+z box
+git status
+clear
+zeditor .
+c
+ztls
+ztls | get ip | get 0
+ztls | get ip | get 0 | clip copy
+wl-clipboard
+sudo pacman -S wl-clipboard
+wl-copy --help
+wl-copy a
+a
+z nu
+cd .config/nushell/
+ls
+nvim config.nu
+wl-paste
+wl-paste --help
+wl-copy a
+wl-paste
+paste
+nvim config.nu
+paste
+clear
+paste
+paste | noctalia 
+noctalia msg
+noctalia msg --help
+noctalia action --help
+noctalia msg --help
+dunst
+clear
+cd tmp
+git clone https://github.com/ramosdetrigo/noctalia-community-plugins.git
+nohup --help
+sudo pacman -Rsnc nohup
+cd tmp
+magick -size 270x100 canvas:black -transparent black -pointsize 128 -fill '#FF2400' -draw 'text 0,100 \"%H\"' -fill white -pointsize 84 -draw 'text 120,100 \":%M\"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 225,0 225,100' -strokewidth 0 -stroke white -fill white -pointsize 32 -draw 'text 235, 25 \"%m\"' -draw 'text 235, 60 \"%d\"' -draw 'text 235, 95 \"%a\"' '%output_file'
+magick -size 270x100 canvas:black -transparent black -pointsize 128 -fill '#FF2400' -draw 'text 0,100 \"%H\"' -fill white -pointsize 84 -draw 'text 120,100 \":%M\"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 225,0 225,100' -strokewidth 0 -stroke white -fill white -pointsize 32 -draw 'text 235, 25 \"%m\"' -draw 'text 235, 60 \"%d\"' -draw 'text 235, 95 \"%a\"' 'a'
+magick -size 270x100 canvas:black -transparent black -pointsize 128 -fill '#FF2400' -draw 'text 0,100 \"10\"' -fill white -pointsize 84 -draw 'text 120,100 \":12\"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 225,0 225,100' -strokewidth 0 -stroke white -fill white -pointsize 32 -draw 'text 235, 25 \"%m\"' -draw 'text 235, 60 \"%d\"' -draw 'text 235, 95 \"%a\"' 'a'
+magick -size 270x100 canvas:black -transparent black -pointsize 128 -fill '#FF2400' -draw 'text 0,100 \"10\"' -fill white -pointsize 84 -draw 'text 120,100 \":12\"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 225,0 225,100' -strokewidth 0 -stroke white -fill white -pointsize 32 -draw 'text 235, 25 \"%m\"' -draw 'text 235, 60 \"%d\"' -draw 'text 235, 95 \"sat\"' 'a'
+magick -size 270x100 canvas:black -transparent black -pointsize 128 -fill '#FF2400' -draw 'text 0,100 \"10\"' -fill white -pointsize 84 -draw 'text 120,100 \":12\"' -fill '#FF2400' -stroke '#FF2400' -strokewidth 5 -draw 'line 225,0 225,100' -strokewidth 0 -stroke white -fill white -pointsize 32 -draw 'text 235, 25 \"%m\"' -draw 'text 235, 60 \"12\"' -draw 'text 235, 95 \"sat\"' 'a'
+fastfetch
+tt
+sudo pacman -S ttyper
+ttyper
+sudo pacman -Rsnc ttyper
+clear
+z nu
+chmod +x game.nu
+./game.nu
+game.nu
+game
+./game
+./game.nu
+rm game.nu
+./game2.nu
+game2
+nu game2.nu
+exit
+love game.love
+love game.love
+love
+love .
+z love2
+z luna
+love .
+nvim main.lua
+love .
+nvim conf.lua
+love .
+cd /var/lib/noctalia-greeter/
+ls
+killall noctalia
+noctalia -d
+noctalia --help
+noctalia msg --help
+noctalia msg bar-hide
+noctalia msg bar-show
+noctalia msg bar-toggle
+noctalia msg --help
+noctalia msg bar-reserve-toggle
+noctalia msg bar-auto-hide-set 1
+noctalia msg bar-reserve-toggle
+noctalia msg bar-auto-hide-set 0
+noctalia
+noctalia --help
+noctalia config --help
+noctalia msg --help
+noctalia msg bar-auto-hide-toggle
+noctalia msg bar-auto-hide-set -1
+noctalia msg bar-auto-hide-set 1
+noctalia msg bar-auto-hide-set 0
+z box
+git status
+git add .
+git commit -m "updated godot-rapier3d"
+git push
+z star
+nvim .config/starship.toml
+z box
+clear
+z nu
+nvim config.nu
+c
+clear
+nvim config.nu
+z nu
+nvim config.nu
+z nu
+nvim config.nu
+cd ..
+nvim starship.toml
+z box
+git status
+ls
+rm assets/_placeholder/volume_curve.tres
+git add .
+git status
+nvim .config/starship.toml
+z box
+ls
+git statu
+git status
+git add .
+git commit -m "cleanup"
+git push
+stderr
+c
+clear
+a
+c
+nvim ~/.config/starship.toml
+ztls
+fish
+ssh julia@172.24.145.167
+c
+exit
+c
+asdas
+a
+c
+cd rust/
+./do_docker.sh cargo clean dev
+./do_docker.sh cargo clean --help
+./do_docker.sh cargo clean
+docker volume -ls
+docker volume ls
+docker volume inspect rusty-boxy-target
+docker volume inspect rusty-boxy-cargo
+du -hd1 /var/lib/docker/volumes/
+sudo du -hd1 /var/lib/docker/volumes/
+du -hd1 | sort -h
+du -hd1
+du -hd
+du -d1h
+du -d1
+du -h
+du
+du -d 1
+du -d 1 | sort
+du -d 1 | sort -h
+sort --help
+clear 
+du --help
+clear
+du -d1
+du -d 1
+du -h
+du -ld 1
+du -h
+du -ad 1
+z nu
+^du -hd1 | ^sort -h
+cd ~
+^du -hd1 | ^sort -h
+paru -Scc
+du -ad 1
+du --help
+du -ald 1
+du -ad 1
+clear
+du -a *
+du -a * | explore
+du -a * | sort
+du -a * | sort -by physical
+du -a * | sort --by physical
+sort --help
+du -a * | sort-by physical
+du -a Games | sort-by physical
+du -a Games/* | sort-by physical
+df
+df -h
+clear
+du -a Games/* | sort-by physical
+df | from tsv
+df | from tsv --no-header
+df | from tsv --noheaders
+df | from tsv
+df | from tsv --noheaders | sort
+df | from tsv | sort
+df -h
+df -h | from tsv | sort
+ztls
+df -h | lines | skip 1 | split column -r '\s+'
+df -h | lines | skip 1 | split column -r '\s+' filesystem 1K-blocks Used Available Use% "Mounted On"
+nvim .config/nushell/config.nu
+df -h | lines | skip 1 | split column -r '\s+' filesystem 1K-blocks Used Available Use% "Mounted On"
+nvim .config/nushell/config.nu
+df
+nvim .config/nushell/config.nu
+df
+du
+nvim .config/nushell/config.nu
+reload
+nvim .config/nushell/config.nu
+reload
+df
+df | sort-by Use%
+^df --help
+df | sort-by Use%
+fastfetch 
+clear
+z box
+tree -hd1
+clear
+tree
+tree -d
+tree -d1
+tree -l1
+tree --depth=1
+tree
+clear
+tree --help
+clear
+z box
+tree -L1
+tree -L2
+clear
+tree -L2
+z box
+tree -L2
+fastfetch 
+noctalia --version
+z niri
+ls
+nvim config.kdl
+~
+Desktop/Projects/dotfiles
+mkdir Desktop/Projects/dotfiles
+cd Desktop/Projects/dotfiles/
+ls
+clear
+mkdir .local/state
+mkdir .config
+ln --help
+ln -s ~/.config/godot .config/godot
+ls .config/
+ls ~
+ls
+clear
+ls
+ls .local/state/
+ln -s ~/.local/state/noctalia/ .local/state/noctalia
+ls .local/state/
+ls .local/state/noctalia
+clear
+cp -r /var/lib/noctalia-greeter/* .
+ls
+cp -r /var/lib/noctalia-greeter/* .
+nvim /var/lib/noctalia-greeter/appearance.json
+sudo nvim /var/lib/noctalia-greeter/appearance.json
+git init .
+git branch -m main
+clear
+nvim .gitignore
+git status
+git add .
+git status
+git commit -m "Initial commit"
+git push --set-upstream origin 
+git push --set-upstream origin main
+git remote add
+git remote add origin https://github.com/ramosdetrigo/dotfiles.git
+git status
+git push --set-upstream origin main
+git pull --rebase
+git status
+git push
+git push --set-upstream origin main
+git pull
+git branch --set-upstream-to=origin/main main
+git pull
+git pull --no-rebase
+git pull --rebase
+git status
+git pull --rebase
+git status
+git add .
+git commit -m "delete old stuff"
+z dot
+clear
+z dot
+git status
+fastfetch
+clear
+z box
+git status
+z dot
+clear
+c
+z dot
+git add .
+git commit -m "Readme"
+git push
+fastfetch
+sudo /etc/environment
+sudo nvim /etc/environment
+z dot
+sudo nvim /etc/environment
+cd rust
+cargo init .
+cargo build
+cd ..
+git init .
+git branch -m main
+cd rust
+git init . --lib
+git init --lib .
+git init lib
+rm -rf lib
+cargo init --lib
+rust
+cd rust
+clear
+./do_docker.sh cargo clean
+..
+git add .
+ls
+rm -rf .git
+rm .gitignore
+cd rust
+ls
+rm -rf .git
+cd ..
+git init .
+git branch -m main
+git add .
+git status
+git rm --cached *
+git rm --cached .
+git rm --cached 
+git status
+git rm --staged .
+git rm --staged *
+git rm --cached .
+git rm --cached . -r
+git status
+git add .
+git status
+git commit -m "Initial commit"
+gh 
+gh repo
+gh repo create
+git remote add origin https://github.com/petcompufc/Lagosta.git
+git push --help
+git push -u origin main
+git remote add origin https://github.com/petcompufc/Lagosta.git
+git push -u origin main
+git remote add origin https://github.com/petcompufc/Lagosta.git
+git push -u origin main
+git status
+git add .
+git status
+git add bin
+git status
+git add .
+git status
+git add .
+git commit -m "bin folder for exports"
+git push
+git pull --ff
+git push
+cd rust
+cargo add imageproc
+cargo add rayon
+cd ~/mtp
+cd ~/tmp
+git clone https://github.com/PETComputacaoUFC/LagostaOLD.git
+ls
+rm -r noctalia-community-plugins/
+rm thing.*
+rm a.out
+ls
+git clone https://github.com/Voxybuns/at-icons.git
+rm ./*.import
+cd ..
+rm */*.import
+cd rust
+cargo add zxing
+cargo add rxing
+cargo init .
+cargo add rxing
+cargo run
+cargo add anyhow image
+cargo run
+cd rust
+./do_docker.sh cargo clean
+cargo clean
+cargo add zxing-cpp
+./do_docker.sh cargo clean
+cd rust
+cargo add base64
+sudo pacman -S qbittorrent
+sudo pacman -Syyu
+sudo pacman -S qbittorrent
+sudo pacman -S inkscape
+cargo add resvg
+cargo init
+cargo add resvg
+cargo add image
+git branch -m main
+cargo remove image
+cargo run
+sudo pacman -S flatpak
+flatpak install Graphite.flatpak
+flatpak run org.graphite.Graphitte
+flatpak run org.graphite.Graphite
+clear
+cargo run
+cargo add fontdb
+cargo run
+cd rust
+cargo add fontdb resvg
+cargo remove fontdb
+cd rust
+cargo add cargo add bytemuck
+cargo add bytemuck
+~/tmp/
+ls
+mkdir test
+cd test
+cargo init
+cd ..
+mv test playground
+cd playground/
+cargo init
+cargo add bytemuck
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+nvim src/main.rs
+cargo run
+cargo run --release
+cd rust
+cargo remove bytemuck 
+nvim white.sh
+chmod +x white.sh
+./white.sh
+clear
+c
+fastfetch
+sudo docker images ls
+sudo docker image ls
+sudo docker image rm lago-builder:latest
+sudo docker image ls
+sudo docker volume
+sudo docker volume ls
+sudo docker container ls
+sudo docker container ls a
+docker exec -it lago_builder /bin/bash
+docker exec -it lago_build /bin/bash
+bash
+bash rus
+bash rust
+bash algo
+bash lago
+z lago
+cd rust
+bash
+bashm
+strip Lagosta.x86_64
+strip liblago.so
+cargo add krilla krilla-svgc
+cargo add krilla
+cargo add krilla-svg
+cargo add usvgf
+cargo add usvg
+cargo run
+RUST_BACKTRACE=1 cargo run
+RUST_BACKTRACE=full cargo run
+RUST_BACKTRACE=1 cargo run
+clear
+cargo run
+cd rust/
+cargo add krilla krilla-svg
+cd rust
+./do_docker.sh cargo clean
+cargo clean
+z boxy
+cd rust
+z -c
+z -d
+z --help
+cd ~
+cd Desktop/Godot/serious/
+cd boxy
+z box
+z boxy
+ls
+cd rust
+ls
+cargo clean
+./do_docker.sh cargo clean
+# This is a rough extraction and might fail if names contain tabs or newlines<\n>grep "^COPY public.alunos" dump_2026-08-04_20_42_40.sql | sed 's/^COPY public.alunos.*FROM stdin;$//' | tail -n +2 | head -n -1 | awk -F'\t' '{print $1","$2","$15","$8}' > export_manual.csv
+sudo pacman -Syyu
+rustup update stable
+sudo pacman -Syyu
+rustup update nightly
+sudo pacman -Syyu
+cd tmp
+git clone https://github.com/godotengine/godot
+git clone --recurse-submodules https://github.com/godotengine/godot
+cd tmp
+cd godot/
+scons target=template_release build_profile=../a.gdbuild
+ls
+strip Lagosta.x86_64
+cargo run
+git clone local lg = love.graphics<\n><\n>function love.load()<\n>    scarlet = require("scarlet")<\n><\n>    main_container_presses = 0<\n>    button_presses = 0<\n>    <\n>    UI = scarlet.ui_wrapper()<\n>    scarlet.utils.default_theme.corner_radius = 10<\n><\n>    main_container = scarlet.container("main", 100, 100, 600, 400, {anchor="top-left"})<\n>    button = scarlet.button("button", 200, 200, 200, 100, {anchor="center", align="center"})<\n>    label = scarlet.label("label", 300, 300, 200, 50, {text="I'm a Label!", anchor="top", align="top"})<\n>    checkbox = scarlet.checkbox("checkbox", 400, 400, 200, 50, {anchor="bottom", align="bottom", enabled_text="checked", disabled_text="unchecked"})<\n><\n>    main_container:setParent(UI)<\n>    button:setParent(main_container)<\n>    label:setParent(main_container)<\n>    checkbox:setParent(main_container)<\n><\n>    button.text = "BOTÃO"<\n>    main_container.draw_bg = true<\n>    main_container:setThemeOverrides( {normal = {bg_color = {0.2,0.2,0.2}}} )<\n><\n>    function main_container:on_press() main_container_presses = main_container_presses + 1; end<\n>    function button:on_press() button_presses = button_presses+ 1; end<\n>end<\n><\n><\n>function love.update(dt)<\n>    UI:update(dt)<\n>end<\n><\n><\n>local lts = love.timer.getFPS<\n>function love.draw()<\n>    lg.print(tostring(lts()), 10, 10)<\n>    lg.print(tostring(collectgarbage("count")), 10, 25)<\n>    -- lg.print("main presses: "..tostring(main_container_presses), 10,10)<\n>    -- lg.print("button_presses: " .. tostring(button_presses), 10,25)<\n>    UI:draw()<\n>end<\n><\n>function love.keypressed(k)<\n>    if k == "space" then<\n>        scarlet.debug.draw_boundaries = not scarlet.debug.draw_boundaries <\n>    end<\n>end<\n><\n>function love.mousepressed(x, y, button, istouch, presses)<\n>    UI:mousepressed(x, y, button, istouch, presses)<\n>end<\n><\n>function love.mousereleased(x, y, button, istouch, presses)<\n>    UI:mousereleased(x, y, button, istouch, presses)<\n>end<\n><\n>function love.mousemoved(x, y, dx, dy, istouch)<\n>    UI:mousemoved(x, y, dx, dy, istouch)<\n>end<\n><\n>function love.wheelmoved(x, y)<\n>    UI:wheelmoved(x, y)<\n>end
+git cloe
+git clone https://github.com/ramosdetrigo/Scarlet
+z tmp
+cd Scarlet/
+love .
+git add .
+git commit -m "Small bugfix in label + zed things"
+git push
+love .
+nemo --class a
+nemo --help
+nemo --class=a
+du
+clear
+^du -hd1 | ^sort -h
+cd `Program Files (x86)/`
+^du -hd1 | ^sort -h
+cd ..
+cd `Program Files (x86)/`
+rm -rf Aspyr/
+~
+^du -hd1 | ^sort -h
+cd Games
+^du -hd1 | ^sort -h
+rm -rf ROMs
+rm -rf `Gamble With Your Friends/`
+..
+ls
+^du -hd1 | ^sort -h
+cd .local/share/
+^du -hd1 | ^sort -h
+ls godot/
+du -hd1 godot
+du -hd1 ./godot
+^du -hd1 ./godot
+ls
+^du -hd1 ./godot
+^du -hd1
+^du -hd1 | ^sort -h
+cd Steam/
+cd steamapps/
+^du -hd1 | ^sort -h
+cd common/
+^du -hd1 | ^sort -h
+cd ..
+cd compatdata/
+^du -hd1 | ^sort -h
+cd ~
+paru -Scc
+docker container ls
+^du -hd1 | ^sort -h
+docker container ls a
+docker image ls a
+docker image ls
+docker image ls -a
+docker image purge
+docker image --help
+docker image prune
+ls
+clear
+^du -hd1 | ^sort -h
+docker image ls -a
+cd Desktop/Godot/serious/
+ls
+cd Lagosta/
+nvim rust/Dockerfile
+cd ..
+nvim boxy/rust/Dockerfile
+docker image rm rust:1.97-slim-bookworm
+docker image rm 
+docker image rm 1.97-slim-bookworm
+docker image rm 99e09
+docker image ls -a
+clear
+docker volume ls
+docker volume inspect lago-cargo
+sudo ^du -hd1 /var/lib/docker/volumes/lago-cargo
+sudo du -hd1 /var/lib/docker/volumes/lago-cargo
+sudo du -hd1 /var/lib/docker/volumes/lago-target
+sudo du -hd1 /var/lib/docker/volumes/rusty-boxy-cargo
+sudo du -hd1 /var/lib/docker/volumes/rusty-boxy-target
+cd
+lua
+git clone https://github.com/appsinacup/godot-rapier-physics.git
+gsettings
+sudo pacman -R gsettings
+cargo build --features=serde-serialize,parallel,register-docs,single,dim3
+cargo build --features=serde-serialize,parallel,register-docs,single-dim3
+cargo clean
+cargo build --features=serde-serialize,parallel,register-docs,single-dim3
+sudo pacman -Rsnc kitty
+cava
+spicetify
+fish
+nvim .config/fish/config.fish
+nvim .config/nushell/config.nu
+nvim .config/fish/config.fish
+nvim .config/nushell/config.nu
+clear
+spicetify apply
+spicetify update
+spicetify backup apply
+spicetify restore backup apply
+sudo pacman -Rsnc spotify
+paru -S spotify
+paru -Syyu
+nvim ~/.gitconfig
+git clone ju:scarlet
+cd scarlet
+love .
+cd scarlet
+paru -Syyu
+sudo pacman -Rsnc lib32-gstreamer lib32-gst-plugins-base-libs
+sudo pacman -S proton-ge-custom-bin
+paru -S proton-ge-bin
+spicetify apply
+spicetify backup apply
+paru -Rsnc spotify
+paru -S spotify
+curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.gpg | gpg --import -
+paru -S spotify --review
+paru -h
+paru -S --help
+mkpkg 
+makepkg -Si
+spotify
+makepkg -S --help
+makepkg -Si
+makepkg --install
+spicetify apply
+spicetify backup apply
+croc RimWorld
+clear
+croc -v
+croc RimWorld
+croc RimWorld.zip
+croc 294100.zip
+croc "RimWorld by Ludeon Studios.zip"
+rm `RimWorld by Ludeon Studios.zip`
+ip a | grep 172
+croc 294100.zip
+croc "RimWorld by Ludeon Studios.zip"
+z boxy
+ls
+z --help
+zoxide --help
+zoxide remove .
+~
+z boxy
+ls
+git status
+clear
+fastfetch
+cargo init .
+z boxy
+git log --oneline
+git checkout f591ba9
+git restore .
+git checkout f591ba9
+git restore .
+git status
+git log --oneline
+git checkout dev
+git log --oneline
+git checkout 57826d3
+noctalia msg --help
+nvim .config/niri/config.kdl
+sudo pacman -S onlyoffice-bin
+file - "Alunos OCI com id edition(1).csv"
+file -i "Alunos OCI com id edition(1).csv"
+cava
+spicetify backup apply
+spicetify restore backup
+spicetify apply
+sudo pacman -S root
+sudo pacman -Rsnc root
+paru -S rootapp-bin
+paru -Si rootapp-bin
+paru -S rootapp-bin
+croc 294100.zip
+croc "RimWorld by Ludeon Studios.zip"
+croc 294100.zip
+^du -hd1 | ^sort -h
+cd Saves/
+^du -hd1 | ^sort -h
+ls
+cd ..
+ls
+clear
+croc "RimWorld by Ludeon Studios.tar"
+cargo add image
+cargo add rayon
+gh repo create
+git remote add origin https://github.com/ramosdetrigo/pdi.git
+git branch -m main
+git push 
+git push -u origin main
+git push --set-upstream origin main
+git pull
+git branch --set-upstream-to=origin/main main
+git add .
+git commit -m "Initial commit"
+git branch --set-upstream-to=origin/main main
+git fetch
+git branch --set-upstream-to=origin/main main
+git push --set-upstream origin main
+clear
+git branch --set-upstream-to=origin/main main
+clear
+cargo run
+cargo run mia.jpeg
+cargo run -- mia.jpeg
+cargo run mia.jpeg
+cargo run --example transform mia.jpeg
+git add .
+git commit -m "Transforms - aula 1"
+git push
+paru -S olympus-bin
+sudo nvim /var/lib/noctalia-greeter/appearance.json
+sudo nvim /var/lib/noctalia-greeter/greeter.toml
+sudo nvim /var/lib/noctalia-greeter/sync.toml
+sudo pacman -Syyu
+paru -Syyu
+cava
+git pull
+git status
+nvim src/scenes/generator/generator.gd
+git restore .
+lscpu
+z lago
+git add .
+git commit -m "Reader UI"
+git push
+git add .
+git commit -m "Reader UI - Sheet list sidebar"
+git push
+sudo pacman -Syyu
+paru -Syyu
+cargo add image
+cd rust
+cargo add image
+cargo remove imageproc
+cargo add imageproc
+z lago
+git add .
+git commit -m "Start image filtering implementation"
+git push
+niri msg --help
+niri msg pick-window
+niri validate
+cargo add itertools
+cd rust/
+cargo add itertools
+git add .
+git commit -m "Amortizando é O(n³) então não tá tão ruim"
+git push
+clear
+./Lagosta.x86_64
+niri msg action set-dynamic-cast-window --id (niri msg --json pick-window | from json | get id)
+clear
+./Lagosta.x86_64
+cargo run --example transform mia.jpeg
+cargo run --example transform
+clear
+cargo run --example transform
+sudo pacman -S gnome-online-accounts-gtk
+sudo pacman -Rsnc gnome-online-accounts-gtk
+sudo pacman -S rclone
+rclone config
+sudo systemctl enable --now rsync
+sudo systemctl enable --now rclone
+rclone
+rclone ls
+rclone tree
+rclone tree ju_drive
+rclone tree ju_drive:
+rclone config
+clear
+rclone config
+rclone tree ju_drive:
+rclone config
+rclone mount --allow-other test-cache: /var/tmp/test-cache
+rclone mount --allow-other cache_ju: /var/tmp/test-cache
+rclone config
+ls /mnt
+mkdir /mnt/ju_drive
+sudo mkdir /mnt/ju_drive
+sudo rclone mount ju_drive: /mnt/ju_drive/
+rclone mount ju_drive: /mnt/ju_drive/
+sudo chown --help
+sudo chown julia /mnt/ju_drive
+rclone mount ju_drive: /mnt/ju_drive/
+rclone config
+rclone mount ju_drive: /mnt/ju_drive/
+rclone config
+rclone mount ju_drive: /mnt/ju_drive/
+sudo pacman -Syyu
+paru -Syyu
+spicetify backup apply
+cd rust
+cargo add glam
+ping google.com
+c
+nvim "2º fase OCI - Mod B - Colegio Farias Brito Pre Vestibular Central-006.bmp"
+convert -density 300 "OCI - PROGRAMAÇÃO.pdf" -resize 25% a.png
+convert -density 300 "OCI - PROGRAMAÇÃO.pdf" -resize 50% a.png
+./tmp/
+ls
+git clone gh:CA-SMD/mediaweek
+./mediaweek/
+gh auth login
+git config user.name kodiitulip
+git config user.email kodii.tulip@proton.me
+zeditor .
+paru -S deno
+c
+deno astro telemetry disable
+c
+e
+exit
+git merge main 
+gh auth list
+gh auth status
+gh auth logout kodiitulip
+gh auth logout
+e
+exit
+magick convert *.heic *.png
+magick convert *.heic ifce.png
+magick *.pdf oci.png
+convert -density 300 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 150 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 151 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 155 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 153 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 154 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+convert -density 153 -depth 8 -quality 85 "AMANDA SALES CARNEIRO.pdf" a.png
+magick --help
+magick --help | grep density
+magick --help | grep quality
+magick -density 300 -resize 25% "AMANDA SALES CARNEIRO.pdf" a.png
+magick -density 300 "AMANDA SALES CARNEIRO.pdf" -resize 25% a.png
+magick -density 300 "AMANDA SALES CARNEIRO.pdf" -resize 50% a.png
+magick -density 153 "AMANDA SALES CARNEIRO.pdf" a.png
+magick --help | grep depth
+btop
+noctalia --help
+noctalia -d
+btop
+bash
+for f
+for f in *.pdf
+for f in 0..1
+for f in range(1,2)
+*.pdf each
+ls *.pdf each
+ls *.pdf each {echo $f}
+ls *.pdf | each {echo $f}
+ls *.pdf | each {echo f}
+ls *.pdf | each {|f| echo f}
+ls *.pdf | each {|f| echo $f}
+ls *.pdf | each {|f| echo $f.name}
+ls *.pdf | each {|f| magick -density 153 $f.name $f.name.png}
+ls *.pdf | each {|f| magick -density 153 $f.name $f.name join .png}
+ls *.pdf | each {|f| echo "$f"}
+ls *.pdf | each {|f| echo '$f'}
+ls *.pdf | each {|f| echo '${f}'}
+ls *.pdf | each {|f| echo $'$f'}
+ls *.pdf | each {|f| echo $'($f)'}
+ls *.pdf | each {|f| echo $'($f.name)'}
+ls *.pdf | each {|f| echo $'($f)'}
+ls *.pdf | each {|f| echo $'($f.name)'}
+ls -s *.pdf | each {|f| echo $'($f.name)'}
+ls -s *.pdf | each {|f| echo $'($f.name%.*)'}
+ls -s *.pdf | each {|f| echo $'($f.name)%.*'}
+ls -s *.pdf | each {|f| echo $'{$f.name}'}
+ls -s *.pdf | each {|f| echo $'(${f.name})'}
+ls -s *.pdf | each {|f| echo $'($f.name)'}
+ls -s *.pdf | each {|f| path parse}
+ls -s *.pdf | each {|f| path parse f}
+ls -s *.pdf | each {|f| path parse $f}
+ls -s *.pdf | each {|f| path parse}
+path --help
+get extension
+a.pdf | get extension
+"a.pdf" | get extension
+ls -s *.pdf | each {|f| get extension}
+ls -s *.pdf | each {get extension}
+ls -s *.pdf | each {f | get extension}
+ls -s *.pdf | each {get extension}
+ls *.pdf | each {|f| magick -density 153 $f.name $"($f.name).png)"}
+ls *.pdf | each {|f| echo $f}
+ls *.pdf | each {|f| echo $f.name}
+ls *.pdf | each {|f| echo f | get extension}
+ls *.pdf | each {|f| echo f}
+ls *.pdf | each {|f| $f | get extension}
+ls *.pdf | each {|f| $f | get extension?}
+ls *.pdf | each {|f| $f.name | get extension?}
+ls *.pdf | each {|f| $f.name | get extension}
+❯ ls *.pdf | each {|f| $f.name | path stem}
+❯ ls *.pdf | each {|f| let x = ($f.name | path stem)}
+❯ ls *.pdf | each {|f|$f.name | path parse | get stem}
+❯ ls *.pdf | each {|f| $f.name | path parse | get stem}
+ls *.pdf | each {|f| $f.name | path parse | get stem}
+ls *.pdf | each {|f|let file = $f.name | path parse | get stem}
+ls *.pdf | each {|f| let file = ($f.name | path parse | get stem); magick -density 153 $f.name $"($file).png" }
+cd Downloads/escolas/pdf/
+chmod +x pdf2png.sh
+./pdf2png.sh
+clear
+./pdf2png.sh
+clear
+chmod +x rotatepng.sh
+./rotatepng.sh
+clear
+rm ./*.png
+./pdf2png.sh
+./rotatepng.sh
+rm ./*.png
+./pdf2png.sh
+./rotatepng.sh
+ssh julia@172.24.145.167
+cd tmp
+mkdir coco_backup
+cd coco_backup/
+croc 3581-beatles-hawaii-siren
+croc frail-malt-broil
+ssh julia@172.24.145.167
+ssh julia@192.168.18.208
+cd Desktop/
+ls
+cd Projects/
+ls
+cd dotfiles/
+ls
+nvim thing.sh
+chmod +x thing.sh

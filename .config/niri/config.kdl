@@ -1,0 +1,412 @@
+spawn-at-startup "noctalia"
+spawn-sh-at-startup "satty --daemon"
+
+// ==================== INPUT ==================== //
+// https://niri-wm.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+        }
+        numlock
+    }
+
+    touchpad {
+        off
+    }
+
+    mouse {
+        // accel-speed 0.2
+        // accel-profile "flat"
+    }
+
+    // Uncomment this to make the mouse warp to the center of newly focused windows.
+    // warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        off
+        top-left
+    }
+}
+
+// ==================== MONITORS ==================== //
+// https://niri-wm.github.io/niri/Configuration:-Outputs
+output "PNP(TXD) HDMI 0x00005445" {
+    position x=0 y=0
+    focus-at-startup
+    mode "1440x900@74.984"
+}
+
+output "LG Electronics D2342P SerialNumber" {
+    transform "90"
+    position x=1440 y=-900
+}
+
+
+// ==================== LAYOUT ==================== //
+// https://niri-wm.github.io/niri/Configuration:-Layout
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 8
+
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
+    center-focused-column "never"
+
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.33333
+        proportion 0.66667
+    }
+
+    // You can also customize the heights that "switch-preset-window-height" (Mod+Ctrl+Shift+R) toggles between.
+    preset-window-heights {
+        proportion 0.5
+        proportion 1.0
+    }
+
+    // You can change the default width of the new windows.
+    default-column-width { proportion 1.0; }
+
+    // By default focus ring and border are rendered as a solid background rectangle
+    // behind windows. That is, they will show up through semitransparent windows.
+    // This is because windows using client-side decorations can have an arbitrary shape.
+    //
+    // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // Niri will draw focus ring and border *around* windows that agree to omit their
+    // client-side decorations.
+    //
+    // Alternatively, you can override it with a window rule called
+    // `draw-border-with-background`.
+
+    focus-ring {
+        off
+        width 4
+        active-color "#e6a6c8"
+        inactive-color "#505050"
+
+        // Colors can be set in a variety of ways:
+        // - CSS named colors: "red"
+        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    border {
+        on
+        width 4
+
+        active-gradient from="#e6a6c8" to="#afa2d8" angle=-45 relative-to="workspace-view"
+        inactive-color "#10111b"
+        urgent-color "#f08a9b"
+
+        // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    shadow {
+        on
+        draw-behind-window true
+        softness 10
+        spread 3
+        offset x=0 y=5
+        color "#000A"
+    }
+
+    // outer gaps
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+layer-rule {
+    match namespace="^noctalia-backdrop$"
+    place-within-backdrop true
+}
+
+overview {
+    backdrop-color "#10111b"
+}
+
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// https://niri-wm.github.io/niri/Configuration:-Animations
+animations {
+    // off
+    slowdown 1.5
+}
+
+// ==================== WINDOW RULES ==================== //
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+window-rule {
+    draw-border-with-background false
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width { proportion 0.5; }
+    opacity 0.8
+    background-effect {
+        xray true
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="dev.zed.Zed"
+    opacity 1.0
+    background-effect {
+        xray true
+        blur true
+    }
+}
+
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.satty.satty"
+    open-floating true
+    default-column-width { proportion 1.0; }
+    default-window-height { proportion 1.0; }
+    // open-fullscreen true
+    open-focused true
+}
+
+// large floating windows
+window-rule {
+    match app-id="^nemo$"
+    match app-id="^org.gnome.Nautilus$"
+    match app-id="^org.gnome.gThumb$"
+    match app-id="^dev.noctalia.Noctalia.Settings$"
+    match app-id="^dev.noctalia.Noctalia$"
+    open-floating true
+    default-column-width { proportion 0.6; }
+    default-window-height { proportion 0.75; }
+}
+
+window-rule {
+    match app-id="^Lagosta$"
+    open-floating true
+}
+
+// just float idc
+window-rule {
+    match title="^Zed — Settings$"
+    match app-id="^org.gnome.Calculator$"
+    match app-id="^org.gnome.FileRoller$"
+    open-floating true
+}
+
+// make the godot embed game window floating
+window-rule {
+    match app-id="Godot"
+    exclude title="^Godot$"
+    open-floating true
+}
+
+// steam subwindows should float
+window-rule {
+    match app-id="steam"
+    exclude title=r#"^Steam$"#
+    open-floating true
+    default-column-width { proportion 0.5; }
+    default-window-height { proportion 0.75; }
+}
+
+// ==================== BINDS ==================== //
+
+binds {
+    // === System Binds === //
+    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // === Navigation === //
+    Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Alt+E { spawn "nemo"; }
+    Mod+B { spawn-sh "noctalia msg bar-toggle"; }
+
+    Mod+Shift+E { spawn-sh "noctalia msg panel-open session"; }
+    Mod+Shift+L { spawn-sh "noctalia msg session lock"; }
+    Mod+Shift+P { power-off-monitors; }
+
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+
+    Mod+Ctrl+Page_Down { move-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-workspace-up; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
+
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+    Mod+WheelScrollDown      cooldown-ms=100 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=100 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=100 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=100 { move-column-to-workspace-up; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+
+    Mod+Ctrl+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+
+    Mod+F { fullscreen-window; }
+    Mod+Shift+F { maximize-column; }
+    Ctrl+Alt+F { maximize-window-to-edges; }
+
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+
+    Mod+C { center-column; }
+    Mod+Ctrl+C { center-visible-columns; }
+
+    Mod+S       { toggle-window-floating; }
+    Mod+Shift+S { switch-focus-between-floating-and-tiling; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+W { toggle-column-tabbed-display; }
+
+    // === Workspaces === //
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    // === Print === //
+
+    Print                    { spawn-sh "noctalia msg screenshot-region"; }
+    Shift+Print              { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Print               { spawn-sh "noctalia msg screenshot-region"; }
+    Alt+Print                { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Print                { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Alt+Print           { spawn-sh "noctalia msg screenshot-region"; }
+    Shift+Ctrl+Print         { spawn-sh "noctalia msg screenshot-region"; }
+    Shift+Alt+Print          { spawn-sh "noctalia msg screenshot-region"; }
+    Shift+Ctrl+Alt+Print     { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Alt+Print            { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Ctrl+Print           { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Shift+Print          { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Ctrl+Alt+Print       { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Shift+Ctrl+Print     { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Shift+Alt+Print      { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Shift+Ctrl+Alt+Print { spawn-sh "noctalia msg screenshot-region"; }
+
+    // Applications such as remote-desktop clients and software KVM switches may
+    // request that niri stops processing the keyboard shortcuts defined here
+    // so they may, for example, forward the key presses as-is to a remote machine.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor,
+    // so a buggy application can't hold your session hostage.
+    //
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}
+
+include "dms/cursor.kdl"
+include "dms/binds.kdl"
+
+include "noctalia.kdl"

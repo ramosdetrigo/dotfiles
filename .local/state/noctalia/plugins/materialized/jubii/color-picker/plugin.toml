@@ -1,0 +1,48 @@
+id = "jubii/color-picker"
+name = "Color Picker"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "jubii"
+license = "MIT"
+dependencies = ["hyprpicker"]
+tags = ["tool", "productivity"]
+icon = "color-picker"
+description = "Color picker bar widget - supports multiple color formats. Depends on hyprpicker."
+plugin_api = 3
+
+[[widget]]
+id = "widget"
+entry = "widget.luau"
+
+    [[widget.setting]]
+    key = "notify"
+    type = "bool"
+    label_key = "settings.notify.label"
+    description_key = "settings.notify.description"
+    default = true
+
+    [[widget.setting]]
+    key = "color_format"
+    type = "select"
+    label_key = "settings.color_format.label"
+    description_key = "settings.color_format.description"
+    default = "hex"
+    options = [
+        {label_key="settings.hex.name", value = "hex"},
+        {label_key="settings.rgb.name", value = "rgb"},
+        {label_key="settings.hsl.name", value = "hsl"},
+        {label_key="settings.hsv.name", value = "hsv"},
+        {label_key="settings.cmyk.name", value = "cmyk"},
+    ]
+
+    [[widget.setting]]
+    key = "output_format"
+    type = "select"
+    label_key = "settings.output_format.label"
+    description_key = "settings.output_format.description"
+    default = "css"
+    options = [
+        {label_key = "settings.css.name", value = "css"},
+        {label_key = "settings.raw.name", value = "raw"},
+        {label_key = "settings.normal.name", value = "normal"},
+    ]
